@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "xmanmobi": {
+      "type": "streamable-http",
+      "url": "https://ai.xmanmobi.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "authorizationUrl": "https://bis.joinaws.xyz/oauth/authorize",
+            "tokenUrl": "https://bis.joinaws.xyz/oauth/token",
+            "registrationUrl": "https://bis.joinaws.xyz/oauth/register",
+            "resource": "https://ai.xmanmobi.com/mcp",
+            "baseScopes": [
+              "ad_diagnosis:read"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

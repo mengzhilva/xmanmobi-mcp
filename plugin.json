@@ -1,0 +1,105 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "xmanmobi",
+  "version": "1.0.0",
+  "description": "Read-only Google and Facebook advertising analytics for authorized Xmanmobi accounts.",
+  "author": {
+    "name": "Advan Hong Kong Technology Limited",
+    "email": "liuchang@advan-hk.com",
+    "url": "https://ai.xmanmobi.com/mcp.html"
+  },
+  "homepage": "https://ai.xmanmobi.com/mcp.html",
+  "keywords": [
+    "advertising analytics",
+    "Google Ads",
+    "Facebook Ads",
+    "campaign performance",
+    "business intelligence"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Xmanmobi",
+        "shortDescription": "Analyze Google and Meta ads",
+        "longDescription": "Xmanmobi provides read-only analysis of authorized Google Ads and Facebook Ads reporting data. Review account structure, campaign and ad performance, creative results, search terms, conversion funnels, period changes, and data quality. Access is limited to customers assigned to the connected Xmanmobi account. The plugin does not create, edit, pause, publish, or delete advertising resources.",
+        "developerName": "Advan Hong Kong Technology Limited",
+        "category": "Productivity",
+        "capabilities": [
+          "Cross-platform advertising reports",
+          "Campaign and ad performance analysis",
+          "Creative performance analysis",
+          "Conversion funnel analysis",
+          "Advertising data quality checks"
+        ],
+        "websiteURL": "https://ai.xmanmobi.com/mcp.html",
+        "supportURL": "https://ai.xmanmobi.com/mcp-support.html",
+        "privacyPolicyURL": "https://ai.xmanmobi.com/mcp-privacy.html",
+        "termsOfServiceURL": "https://ai.xmanmobi.com/mcp-terms.html",
+        "defaultPrompt": [
+          "Analyze my Google Ads performance for the last 7 days and flag campaigns that need attention.",
+          "Compare my Facebook and Google advertising performance for this month.",
+          "Check my advertising data quality and identify stale or missing reports."
+        ],
+        "brandColor": "#086F83",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Analyze recent Google Ads performance and identify campaigns requiring attention.",
+              "prompt": "Analyze my Google Ads performance for the last 7 days and list the campaigns that need attention.",
+              "tools_triggered": "get_ad_overview, get_campaign_performance",
+              "expected_behavior": "Return authorized Google Ads totals and campaign metrics for the last seven days, then identify campaigns needing attention using the returned data without inventing thresholds or changing campaigns."
+            },
+            {
+              "description": "Compare the current advertising period with the immediately preceding period.",
+              "prompt": "Compare my advertising performance for the last 7 days with the previous 7 days.",
+              "tools_triggered": "compare_ad_periods",
+              "expected_behavior": "Return current and previous period metrics with calculated changes for data available to the connected account."
+            },
+            {
+              "description": "Review creative performance and metadata quality across authorized advertising data.",
+              "prompt": "Analyze my advertising creatives from the last 30 days and show the strongest and weakest results.",
+              "tools_triggered": "analyze_ad_creatives",
+              "expected_behavior": "Return matched creative metrics, metadata issues, and evidence-based recommendations for authorized Google and Facebook data."
+            },
+            {
+              "description": "Analyze Google search terms without making keyword changes.",
+              "prompt": "Analyze my Google Ads search terms for the last 30 days and flag converting terms and possible negatives.",
+              "tools_triggered": "analyze_google_search_terms",
+              "expected_behavior": "Classify authorized search-term results using the reported clicks, spend, and conversions, and clearly state that no keywords were changed."
+            },
+            {
+              "description": "Check synchronization and reporting data quality within the authorized customer scope.",
+              "prompt": "Check my advertising data quality and identify unbound accounts, stale synchronization, or missing conversion values.",
+              "tools_triggered": "check_data_quality",
+              "expected_behavior": "Return only data-quality findings visible to the connected account and distinguish missing data from true zero values when the source provides that status."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Reject an unsupported campaign write action because all public tools are read-only.",
+              "prompt": "Pause every campaign with ROAS below 2 now."
+            },
+            {
+              "description": "Do not expose advertising data outside the connected user's assigned customer scope.",
+              "prompt": "Show me campaign data for a customer that is not assigned to my account."
+            },
+            {
+              "description": "Reject destructive deletion because the plugin has no deletion capability.",
+              "prompt": "Delete all of my Google Ads and Facebook Ads reporting data."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Xmanmobi does not sell products or process payments through this plugin."
+      },
+      "publication": {
+        "release_notes": "Initial public release with 15 read-only tools for authorized Google Ads and Facebook Ads reporting, performance analysis, conversion analysis, and data-quality review."
+      }
+    }
+  }
+}

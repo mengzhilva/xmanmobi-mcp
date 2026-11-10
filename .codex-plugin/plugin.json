@@ -1,0 +1,45 @@
+{
+  "name": "xmanmobi",
+  "version": "1.0.0",
+  "description": "Read-only Google and Facebook advertising analytics for authorized Xmanmobi accounts.",
+  "author": {
+    "name": "Advan Hong Kong Technology Limited",
+    "email": "liuchang@advan-hk.com",
+    "url": "https://ai.xmanmobi.com/mcp.html"
+  },
+  "homepage": "https://ai.xmanmobi.com/mcp.html",
+  "keywords": [
+    "advertising analytics",
+    "Google Ads",
+    "Facebook Ads",
+    "campaign performance",
+    "business intelligence"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Xmanmobi",
+    "shortDescription": "Analyze Google and Meta ads",
+    "longDescription": "Xmanmobi provides read-only analysis of authorized Google Ads and Facebook Ads reporting data. Review account structure, campaign and ad performance, creative results, search terms, conversion funnels, period changes, and data quality. Access is limited to customers assigned to the connected Xmanmobi account. The plugin does not create, edit, pause, publish, or delete advertising resources.",
+    "developerName": "Advan Hong Kong Technology Limited",
+    "category": "Productivity",
+    "capabilities": [
+      "Cross-platform advertising reports",
+      "Campaign and ad performance analysis",
+      "Creative performance analysis",
+      "Conversion funnel analysis",
+      "Advertising data quality checks"
+    ],
+    "websiteURL": "https://ai.xmanmobi.com/mcp.html",
+    "privacyPolicyURL": "https://ai.xmanmobi.com/mcp-privacy.html",
+    "termsOfServiceURL": "https://ai.xmanmobi.com/mcp-terms.html",
+    "defaultPrompt": [
+      "Analyze my Google Ads performance for the last 7 days and flag campaigns that need attention.",
+      "Compare my Facebook and Google advertising performance for this month.",
+      "Check my advertising data quality and identify stale or missing reports."
+    ],
+    "brandColor": "#086F83",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  },
+  "mcpServers": "./.mcp.json"
+}
